@@ -1,0 +1,6 @@
+{
+  "extends": "@product-feedback/tsconfig/tsconfig.commonjs.json",
+  "include": [
+    "./src/*.ts"
+  ]
+}

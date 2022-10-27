@@ -1,0 +1,39 @@
+{
+  "name": "product-feedback",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@7.14.0",
+  "description": "Product feedback monorepo",
+  "author": {
+    "email": "nandor.dudas@gmail.com",
+    "name": "Nándor Dudás"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=7.0.0"
+  },
+  "scripts": {
+    "build": "turbo run build --filter=!./config/*",
+    "dev": "turbo run dev",
+    "lint:fix": "nr lint --fix",
+    "lint": "npx -y eslint . --cache",
+    "preinstall": "turbo run build --filter=./config/*",
+    "prepare": "is-ci || husky install ./config/husky",
+    "typecheck": "turbo run typecheck",
+    "up": "npx -y taze major -Ir"
+  },
+  "devDependencies": {
+    "@antfu/ni": "^0.18.3",
+    "@product-feedback/commitlint-config": "workspace:*",
+    "@product-feedback/eslint-config": "workspace:*",
+    "@product-feedback/husky": "workspace:*",
+    "@product-feedback/tsconfig": "workspace:*",
+    "turbo": "^1.6.1"
+  },
+  "eslintConfig": {
+    "extends": "@product-feedback"
+  },
+  "commitlint": {
+    "extends": "@product-feedback"
+  }
+}

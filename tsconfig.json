@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/api/tsconfig.json"
+    },
+    {
+      "path": "./config/commitlint/tsconfig.json"
+    },
+    {
+      "path": "./config/eslint-config/tsconfig.json"
+    },
+    {
+      "path": "./config/tsconfig/tsconfig.json"
+    }
+  ]
+}

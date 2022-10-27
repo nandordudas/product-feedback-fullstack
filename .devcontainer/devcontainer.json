@@ -1,0 +1,73 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/typescript-node
+{
+  "name": "AdonisJs + Nuxt.js - Node.js & TypeScript",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  // More info: https://aka.ms/vscode-remote/containers/non-root
+  "remoteUser": "node",
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "sudo chown node node_modules; pnpm install",
+  "features": {
+    "docker-from-docker": "latest"
+  },
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "cweijan.vscode-database-client2",
+        "dbaeumer.vscode-eslint",
+        "jripouteau.adonis-vscode-extension",
+        "rangav.vscode-thunder-client",
+        "usernamehw.errorlens",
+        "vue.volar"
+      ],
+      "settings": {
+        // https://github.com/i-am-weasel/devcontainer-dotfiles
+        "dotfiles.repository": "i-am-weasel/devcontainer-dotfiles",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true,
+          "source.fixAll": false,
+          "source.organizeImports": false
+        },
+        "editor.formatOnSave": false,
+        "editor.linkedEditing": true,
+        "errorLens.excludeBySource": [
+          "cSpell",
+          "eslint"
+        ],
+        "errorLens.fontStyleItalic": true,
+        "errorLens.fontWeight": "100",
+        "eslint.codeAction.showDocumentation": {
+          "enable": true
+        },
+        "eslint.codeActionsOnSave.mode": "problems",
+        "eslint.quiet": true,
+        "eslint.validate": [
+          "html",
+          "javascript",
+          "javascriptreact",
+          "json",
+          "json5",
+          "jsonc",
+          "markdown",
+          "typescript",
+          "typescriptreact",
+          "vue",
+          "yaml"
+        ],
+        "typescript.updateImportsOnFileMove.enabled": "always"
+      }
+    }
+  },
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [
+    3000,
+    3333,
+    5432,
+    6379
+  ]
+}

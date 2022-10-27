@@ -1,0 +1,9 @@
+{
+  "name": "@product-feedback/husky",
+  "version": "0.0.1",
+  "description": "Husky config",
+  "peerDependencies": {
+    "husky": "^8.0.1",
+    "is-ci": "^3.0.1"
+  }
+}

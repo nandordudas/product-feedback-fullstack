@@ -1,0 +1,32 @@
+{
+  "name": "@product-feedback/eslint-config",
+  "version": "0.0.1",
+  "description": "ESLint config",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit --incremental"
+  },
+  "peerDependencies": {
+    "eslint": "^8.24.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "eslint-define-config": "^1.8.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.27.0",
+    "eslint-plugin-import-newlines": "^1.2.3",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-sort-class-members": "^1.15.2",
+    "tsup": "^6.3.0"
+  }
+}

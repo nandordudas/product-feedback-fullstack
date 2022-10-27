@@ -1,0 +1,13 @@
+{
+  "name": "@product-feedback/tsconfig",
+  "version": "0.0.1",
+  "description": "TypeScript config",
+  "main": "./tsconfig.json",
+  "files": [
+    "./tsconfig.commonjs.json",
+    "./tsconfig.json"
+  ],
+  "peerDependencies": {
+    "@types/node": "*"
+  }
+}
