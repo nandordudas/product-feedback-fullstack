@@ -12,15 +12,15 @@ export default class extends BaseSchema {
         .unique()
       table.string('password', 180)
         .notNullable()
-      table.string('remember_me_token')
+      table.string('rememberMeToken')
         .nullable()
 
       /**
        * Uses timestampz for PostgreSQL and DATETIME2 for MSSQL
        */
-      table.timestamp('created_at', { useTz: true })
+      table.timestamp('createdAt', { useTz: true })
         .notNullable()
-      table.timestamp('updated_at', { useTz: true })
+      table.timestamp('updatedAt', { useTz: true })
         .notNullable()
 
       table.index('email')

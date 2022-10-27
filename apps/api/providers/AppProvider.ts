@@ -8,12 +8,16 @@ export default class AppProvider {
     // Register your own bindings
   }
 
+  // App is ready
   public async boot() {
-    // IoC container is ready
+    const { default: Database } = await import('@ioc:Adonis/Lucid/Database')
+    const { CamelCaseNamingStrategy } = await import('App/NamingStrategies/CamelCaseNamingStrategy')
+
+    Database.SimplePaginator.namingStrategy = new CamelCaseNamingStrategy()
   }
 
   public async ready() {
-    // App is ready
+    // IoC container is ready
   }
 
   public async shutdown() {

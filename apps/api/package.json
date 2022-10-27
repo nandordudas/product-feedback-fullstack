@@ -15,6 +15,8 @@
     "@adonisjs/lucid": "^18.2.0",
     "@adonisjs/redis": "^7.3.1",
     "@adonisjs/repl": "^3.1.11",
+    "pg": "^8.8.0",
+    "phc-argon2": "^1.1.3",
     "pino-pretty": "^9.1.1",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",

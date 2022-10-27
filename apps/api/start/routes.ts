@@ -18,4 +18,5 @@
 |
 */
 
+import './routes/users'
 import './routes/welcome'
