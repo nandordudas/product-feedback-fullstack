@@ -27,6 +27,7 @@
     "eslint-plugin-import-newlines": "^1.2.3",
     "eslint-plugin-simple-import-sort": "^8.0.0",
     "eslint-plugin-sort-class-members": "^1.15.2",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "tsup": "^6.3.0"
   }
 }

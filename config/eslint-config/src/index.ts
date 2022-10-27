@@ -1,7 +1,9 @@
 import { defineConfig } from 'eslint-define-config'
 
 enum RuleConfigSeverity {
-  Error = 2,
+  Off,
+  Waring,
+  Error,
 }
 
 const config = defineConfig({
@@ -12,6 +14,7 @@ const config = defineConfig({
     'eslint-plugin-simple-import-sort',
     'import-newlines',
     'sort-class-members',
+    'unused-imports',
   ],
   rules: {
     'max-len': [
@@ -42,6 +45,7 @@ const config = defineConfig({
         accessorPairPositioning: 'getThenSet',
       },
     ],
+    'unused-imports/no-unused-imports': RuleConfigSeverity.Error,
   },
   ignorePatterns: [
     '.vscode',
