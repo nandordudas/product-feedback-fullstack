@@ -1,8 +1,7 @@
 import type { ApplicationContract } from '@ioc:Adonis/Core/Application'
 
 export default class AppProvider {
-  constructor(protected app: ApplicationContract) {
-  }
+  constructor(protected app: ApplicationContract) {}
 
   public register() {
     // Register your own bindings
@@ -10,10 +9,14 @@ export default class AppProvider {
 
   // App is ready
   public async boot() {
-    const { default: Database } = await import('@ioc:Adonis/Lucid/Database')
-    const { CamelCaseNamingStrategy } = await import('App/NamingStrategies/CamelCaseNamingStrategy')
+    const Database = this.app.container.resolveBinding('Adonis/Lucid/Database')
+    const { BaseModel } = this.app.container.resolveBinding('Adonis/Lucid/Orm')
 
-    Database.SimplePaginator.namingStrategy = new CamelCaseNamingStrategy()
+    const { CamelCaseNamingStrategy } = await import('./NamingStrategyProvider')
+    const camelCaseNamingStrategy = new CamelCaseNamingStrategy()
+
+    BaseModel.namingStrategy = camelCaseNamingStrategy
+    Database.SimplePaginator.namingStrategy = camelCaseNamingStrategy
   }
 
   public async ready() {

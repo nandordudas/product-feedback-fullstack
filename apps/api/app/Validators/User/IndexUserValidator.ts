@@ -2,7 +2,7 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import type { CustomMessages } from '@ioc:Adonis/Core/Validator'
 import { schema } from '@ioc:Adonis/Core/Validator'
 
-export default class GetUsersValidator {
+export default class IndexUserValidator {
   /*
    * Define schema to validate the "shape", "type", "formatting" and "integrity" of data.
    *

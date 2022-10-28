@@ -18,5 +18,12 @@
 |
 */
 
-import './routes/users'
-import './routes/welcome'
+import Route from '@ioc:Adonis/Core/Route'
+
+Route
+  .group(() => Promise.all([
+    // import('./routes/health'),
+    import('./routes/welcome'),
+    import('./routes/users'),
+  ]))
+  .prefix('/api')

@@ -106,8 +106,8 @@ export const http: ServerConfig = {
     path: '/',
     maxAge: '2h',
     httpOnly: true,
-    secure: false,
-    sameSite: false,
+    secure: true,
+    sameSite: true,
   },
 
   /*
@@ -181,6 +181,7 @@ export const logger: LoggerConfig = {
   |
   */
   prettyPrint: Env.get('NODE_ENV') === 'development',
+
 }
 
 /*
@@ -231,5 +232,4 @@ export const profiler: ProfilerConfig = {
 | to the default config https://git.io/JT0WE
 |
 */
-export const validator: ValidatorConfig = {
-}
+export const validator: ValidatorConfig = {}

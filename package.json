@@ -28,7 +28,7 @@
     "@product-feedback/eslint-config": "workspace:*",
     "@product-feedback/husky": "workspace:*",
     "@product-feedback/tsconfig": "workspace:*",
-    "turbo": "^1.6.1"
+    "turbo": "^1.6.2"
   },
   "eslintConfig": {
     "extends": "@product-feedback"

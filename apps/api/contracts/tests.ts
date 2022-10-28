@@ -13,7 +13,6 @@ declare module '@japa/runner' {
   }
 
   interface Test<TestData> {
-    // Extend test
     __testData: TestData
   }
 }

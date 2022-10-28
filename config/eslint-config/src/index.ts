@@ -1,10 +1,6 @@
 import { defineConfig } from 'eslint-define-config'
 
-enum RuleConfigSeverity {
-  Off,
-  Waring,
-  Error,
-}
+import { RuleConfigSeverity } from './constants'
 
 const config = defineConfig({
   extends: [
@@ -17,11 +13,24 @@ const config = defineConfig({
     'unused-imports',
   ],
   rules: {
+    '@typescript-eslint/explicit-member-accessibility': [
+      RuleConfigSeverity.Error,
+      {
+        accessibility: 'explicit',
+        overrides: {
+          accessors: 'explicit',
+          constructors: 'no-public',
+          methods: 'explicit',
+          parameterProperties: 'explicit',
+          properties: 'explicit',
+        },
+      },
+    ],
+    'import-newlines/enforce': RuleConfigSeverity.Error,
     'max-len': [
       RuleConfigSeverity.Error,
       120,
     ],
-    'import-newlines/enforce': RuleConfigSeverity.Error,
     'newline-per-chained-call': [
       RuleConfigSeverity.Error,
       {
