@@ -8,7 +8,7 @@
   // More info: https://aka.ms/vscode-remote/containers/non-root
   "remoteUser": "node",
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "sudo chown node node_modules; pnpm install",
+  "postCreateCommand": "sudo chown -R node: /workspace; pnpm install",
   "features": {
     "docker-from-docker": "latest"
   },
