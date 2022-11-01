@@ -1,8 +1,40 @@
 {
   "files": [],
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    /* Modules */
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    /* Emit */
+    "importsNotUsedAsValues": "error",
+    "preserveValueImports": true,
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    /* Type Checking */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    /* Completeness */
+    "skipLibCheck": true
+  },
   "references": [
     {
       "path": "./apps/api/tsconfig.json"
+    },
+    {
+      "path": "./apps/web/tsconfig.json"
     },
     {
       "path": "./config/commitlint/tsconfig.json"

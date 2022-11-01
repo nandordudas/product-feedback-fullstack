@@ -4,6 +4,7 @@
     "composite": true,
     "target": "ES5",
     "module": "CommonJS",
+    "declaration": true,
     "preserveValueImports": false
   },
   "exclude": [
