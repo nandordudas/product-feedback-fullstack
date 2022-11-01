@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   app:
@@ -17,22 +17,41 @@ services:
       - node_modules:/workspace/node_modules
       - pnpm_store:/home/node/.local/share/pnpm/store
       - vscode_extensions:/home/node/.vscode-server/extensions
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
 
   postgres:
-    image: postgres:14-alpine
+    image: postgres:14.5-alpine
     restart: unless-stopped
     env_file: ../.env
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ../config/docker/postgres-dev-init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 54320:5432
+    healthcheck:
+      test: "pg_isready -U $${POSTGRES_USER}"
+      interval: 1s
+      timeout: 3s
+      retries: 30
 
   redis:
-    image: redis:6-alpine
+    image: redis:6.2-alpine
     restart: always
     env_file: ../.env
     command: /bin/sh -c "redis-server --appendonly yes --requirepass $${REDIS_PASSWORD}"
     volumes:
       - redis_data:/data
+    ports:
+      - 63790:6379
+    healthcheck:
+      test: redis-cli ping
+      interval: 1s
+      timeout: 3s
+      retries: 30
 
 volumes:
   bash_history:
