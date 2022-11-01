@@ -1,1 +1,8 @@
-The 'config/husky/commit-msg' hook was ignored because it's not set as executable.
+.
+├── _
+├── commit-msg
+├── node_modules
+├── package.json
+└── README.md
+
+2 directories, 3 files
