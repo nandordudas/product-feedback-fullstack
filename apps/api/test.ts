@@ -23,8 +23,7 @@ process.env.NODE_ENV = 'test'
 
 sourceMapSupport.install({ handleUncaughtExceptions: false })
 
-const kernel = new Ignitor(__dirname)
-  .kernel('test')
+const kernel = new Ignitor(__dirname).kernel('test')
 
 kernel
   .boot()

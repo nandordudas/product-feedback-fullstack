@@ -32,7 +32,14 @@
       {
         "name": "functional",
         "files": [
-          "tests/functional/**/*.spec(.ts|.js)"
+          "tests/functional/**/*.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "name": "unit",
+        "files": [
+          "tests/unit/**/*.spec.ts"
         ],
         "timeout": 60000
       }

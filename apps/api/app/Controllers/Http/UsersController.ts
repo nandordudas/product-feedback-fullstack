@@ -8,8 +8,7 @@ import UpdateUserValidator from 'App/Validators/User/UpdateUserValidator'
 export default class UsersController extends Controller {
   public async index({ request }: HttpContextContract) {
     const { page = Controller.pagination.defaultPageNumber } = await request.validate(IndexUsersValidator)
-    const result = await User.query()
-      .paginate(page, Controller.pagination.pageLimit)
+    const result = await User.query().paginate(page, Controller.pagination.pageLimit)
 
     return result
   }
@@ -30,8 +29,7 @@ export default class UsersController extends Controller {
   public async update({ params: { id }, request }: HttpContextContract) {
     const payload = await request.validate(UpdateUserValidator)
     const user = await User.findOrFail(id)
-    const result = await user.merge(payload)
-      .save()
+    const result = await user.merge(payload).save()
 
     return result
   }

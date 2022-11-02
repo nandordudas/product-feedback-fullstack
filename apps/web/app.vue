@@ -1,17 +1,17 @@
 <script setup lang="ts">
-const baseUrl = 'http://localhost:3333/api/users'
-
-const response = await fetch(baseUrl)
-const { data: users, meta } = await response.json()
+const { data } = await useFetch('/api/users')
 </script>
 
 <template>
+  <h1>users</h1>
   <div>
     <ul>
-      <li v-for="{ id, email } in users" :key="id">
-        {{ email }}
+      <li v-for="{ id, email } in data.data" :key="id">
+        <NuxtLink :to="`/users/${id}`">
+          {{ email }}
+        </NuxtLink>
       </li>
     </ul>
-    <div>{{ meta }}</div>
+    <div>{{ data.meta }}</div>
   </div>
 </template>

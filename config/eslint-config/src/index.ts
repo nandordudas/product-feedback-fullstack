@@ -34,7 +34,7 @@ const config = defineConfig({
     'newline-per-chained-call': [
       RuleConfigSeverity.Error,
       {
-        ignoreChainWithDepth: 1,
+        ignoreChainWithDepth: 2,
       },
     ],
     'simple-import-sort/imports': RuleConfigSeverity.Error,

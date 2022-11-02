@@ -28,10 +28,8 @@ export default class ExceptionHandler extends HttpExceptionHandler {
     /**
      * Self handle the validation exception
      */
-    if (codes.includes(error.code)) {
-      return context.response.status(422)
-        .send(error.messages)
-    }
+    if (codes.includes(error.code))
+      return context.response.status(422).send(error.messages)
 
     /**
      * Forward rest of the exceptions to the parent class

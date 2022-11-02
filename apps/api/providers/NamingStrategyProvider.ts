@@ -40,8 +40,7 @@ export class CamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
       : camelCase(`${model.name}_${model.primaryKey}`)
 
   public override relationPivotTable = (_relation: 'manyToMany', model: Model, relatedModel: Model) =>
-    camelCase([relatedModel.name, model.name].sort()
-      .join('_'))
+    camelCase([relatedModel.name, model.name].sort().join('_'))
 
   public override relationPivotForeignKey = (_relation: 'manyToMany', model: Model) =>
     camelCase(`${model.name}_${model.primaryKey}`)

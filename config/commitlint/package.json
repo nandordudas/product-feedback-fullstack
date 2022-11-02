@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "build": "tsup",
+    "dev": "nr build --watch",
     "typecheck": "tsc --noEmit --incremental"
   },
   "peerDependencies": {

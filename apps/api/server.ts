@@ -17,6 +17,5 @@ import sourceMapSupport from 'source-map-support'
 
 sourceMapSupport.install({ handleUncaughtExceptions: false })
 
-new Ignitor(__dirname)
-  .httpServer()
+new Ignitor(__dirname).httpServer()
   .start()
