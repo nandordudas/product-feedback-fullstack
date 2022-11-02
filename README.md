@@ -9,12 +9,13 @@ Check [system requirements] and [installation] introduction.
 
 ```sh
 $ # clone project's repository
-$ git clone https://github.com/nandordudas/product-feedback-fullstack product-feedback
+$ npx degit nandordudas/product-feedback-fullstack product-feedback
 $ # select project's folder
 $ cd ./product-feedback
-$ # cerate necessary files - update the value of COMPOSE_PROJECT_NAME variable
+$ # create necessary dotfiles - update the value of COMPOSE_PROJECT_NAME variable
 $ cp ./.env.example ./.env
 $ cp ./apps/api/.env.example ./apps/api/.env
+$ cp ./apps/web/.env.example ./apps/web/.env
 $ # open the folder with VSCode
 $ code . -n
 ```
@@ -23,7 +24,7 @@ Use the `Dev Containers: Reopen in Container` command from the Command Palette (
 
 This may take longer the first time, but it will be much faster after that.
 
-## Extra steps
+## Checking the api
 
 ```sh
 $ # run api migration and seed database with
