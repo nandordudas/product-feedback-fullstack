@@ -3,4 +3,7 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
+  runtimeConfig: {
+    apiBase: '',
+  },
 })

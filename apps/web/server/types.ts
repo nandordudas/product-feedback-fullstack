@@ -1,4 +1,4 @@
-interface Pagination {
+export interface Pagination {
   total: number
   perPage: number
   currentPage: number
@@ -10,23 +10,15 @@ interface Pagination {
   previousPageUrl: string | null
 }
 
-interface User {
+// TODO: check openapi
+export interface User {
   id: number
   email: string
   createdAt: string
   updatedAt: string
 }
 
-interface Response {
+export interface Response {
   meta: Pagination
   data: User[]
 }
-
-// TODO: move to app config
-const baseUrl = 'http://localhost:3333/api'
-
-export default defineEventHandler(async () => {
-  const result = await $fetch<Response>(`${baseUrl}/users`)
-
-  return result
-})
