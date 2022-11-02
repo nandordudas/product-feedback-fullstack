@@ -33,10 +33,10 @@ services:
     ports:
       - 54320:5432
     healthcheck:
-      test: "pg_isready -U $${POSTGRES_USER}"
-      interval: 1s
-      timeout: 3s
-      retries: 30
+      test: pg_isready
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   redis:
     image: redis:6.2-alpine
@@ -49,9 +49,9 @@ services:
       - 63790:6379
     healthcheck:
       test: redis-cli ping
-      interval: 1s
-      timeout: 3s
-      retries: 30
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   bash_history:
