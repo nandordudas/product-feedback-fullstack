@@ -11,6 +11,7 @@ const config = defineConfig({
     'import-newlines',
     'sort-class-members',
     'unused-imports',
+    'no-relative-import-paths',
   ],
   rules: {
     '@typescript-eslint/explicit-member-accessibility': [
@@ -55,6 +56,12 @@ const config = defineConfig({
       },
     ],
     'unused-imports/no-unused-imports': RuleConfigSeverity.Error,
+    'no-relative-import-paths/no-relative-import-paths': [
+      RuleConfigSeverity.Error,
+      {
+        allowSameFolder: true,
+      },
+    ],
   },
   ignorePatterns: [
     '.vscode',
