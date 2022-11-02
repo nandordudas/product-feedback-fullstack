@@ -23,13 +23,11 @@ export default class ExceptionHandler extends HttpExceptionHandler {
   }
 
   public async handle(error: any, context: HttpContextContract) {
-    const codes = ['E_ROW_NOT_FOUND', 'E_VALIDATION_FAILURE']
+    if (error.code === 'E_VALIDATION_FAILURE')
+      return context.response.unprocessableEntity(error.messages)
 
-    /**
-     * Self handle the validation exception
-     */
-    if (codes.includes(error.code))
-      return context.response.status(422).send(error.messages)
+    if (error.code === 'E_ROW_NOT_FOUND')
+      return context.response.unprocessableEntity({ errors: [{ message: 'row not found' }] })
 
     /**
      * Forward rest of the exceptions to the parent class

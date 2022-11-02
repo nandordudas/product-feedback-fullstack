@@ -18,5 +18,6 @@
 |
 */
 
+import './routes/health'
 import './routes/welcome'
 import './routes/users'

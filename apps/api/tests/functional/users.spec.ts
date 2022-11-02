@@ -112,6 +112,8 @@ test.group('/api/users store', () => {
   })
 
   test('should validate existing user', async ({ client }) => {
+    const { email, password } = await User.findOrFail(1)
+
     const response = await client.post('/api/users')
       .json({ email, password })
 
@@ -133,11 +135,13 @@ test.group('/api/users show', () => {
     response.assertStatus(200)
   })
 
-  // TODO: return with response
   test('should show error message when user does not exists', async ({ client }) => {
     const response = await client.get('/api/users/101')
 
     response.assertStatus(422)
+    response.assertBodyContains({
+      errors: [{ message: 'row not found' }],
+    })
   })
 })
 
