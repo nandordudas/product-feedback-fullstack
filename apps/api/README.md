@@ -1,21 +1,6 @@
-.
-├── ace
-├── ace-manifest.json
-├── app
-├── build
-├── commands
-├── config
-├── contracts
-├── database
-├── env.ts
-├── node_modules
-├── package.json
-├── providers
-├── README.md
-├── server.ts
-├── start
-├── tests
-├── test.ts
-└── tsconfig.json
+# Product feedback - api
 
-10 directories, 8 files
+```sh
+$ # run database migration
+$ node ace migration:refresh --seed
+```
