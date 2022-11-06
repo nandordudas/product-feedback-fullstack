@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const { data } = await useFetch('/api/users')
+import type { Response } from './server/types'
+
+const { data } = await useFetch<Response>('/api/users')
 </script>
 
 <template>
