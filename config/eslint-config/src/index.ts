@@ -66,6 +66,7 @@ const config = defineConfig({
   ignorePatterns: [
     '.vscode',
     'build',
+    'node-jiti',
   ],
 })
 
