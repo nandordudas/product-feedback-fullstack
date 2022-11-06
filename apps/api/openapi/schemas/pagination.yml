@@ -1,0 +1,34 @@
+type: object
+properties:
+  total:
+    type: integer
+    format: int32
+    example: 50
+  perPage:
+    type: integer
+    format: int32
+    example: 15
+  currentPage:
+    type: integer
+    format: int32
+    example: 1
+  lastPage:
+    type: integer
+    format: int32
+    example: 4
+  firstPage:
+    type: integer
+    format: int32
+    example: 1
+  firstPageUrl:
+    type: string
+    example: /?page=1
+  lastPageUrl:
+    type: string
+    example: /?page=4
+  nextPageUrl:
+    type: string
+    example: /?page=2
+  previousPageUrl:
+    type: string
+    nullable: true
