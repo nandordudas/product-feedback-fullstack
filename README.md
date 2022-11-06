@@ -1,5 +1,7 @@
 # [WIP] Product feedback
 
+> ❗ The related project will be filled with items until 15th November
+
 This project is based on [developing inside a container] with VSCode.
 [Development container] is a powerful way to create local development environments.
 
