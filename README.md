@@ -1,3 +1,5 @@
+[![CI](https://github.com/nandordudas/product-feedback-fullstack/actions/workflows/ci.yml/badge.svg)](https://github.com/nandordudas/product-feedback-fullstack/actions/workflows/ci.yml)
+
 # [WIP] Product feedback
 
 > ❗ The related project will be filled with items until 15th November
