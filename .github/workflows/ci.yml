@@ -17,8 +17,31 @@ concurrency:
 jobs:
   ci:
     runs-on: ubuntu-latest
-
     timeout-minutes: 5
+
+    container: node:16
+
+    services:
+      redis:
+        image: redis:6.2-alpine
+        env:
+          REDIS_PASSWORD: redis
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - uses: actions/checkout@v3
@@ -46,3 +69,20 @@ jobs:
 
       - name: Test unit
         run: nr test
+        env:
+          APP_KEY: CGEyKGi5xfpoeiMq0Aws29BNb5kMumxN
+          ASSETS_DRIVER: fake
+          CACHE_VIEWS: false
+          DB_CONNECTION: pg
+          DRIVE_DISK: local
+          NODE_ENV: test
+          PG_DB_NAME: postgres
+          PG_HOST: postgres
+          PG_PASSWORD: postgres
+          PG_PORT: 5432
+          PG_USER: postgres
+          REDIS_CONNECTION: local
+          REDIS_HOST: redis
+          REDIS_PASSWORD: redis
+          REDIS_PORT: 6379
+          SESSION_DRIVER: memory
