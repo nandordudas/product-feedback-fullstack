@@ -3,11 +3,93 @@ openapi: 3.0.2
 info:
   title: API Title
   version: 0.0.1
+  description: >
+    Work
+    In
+    Progress
+
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
 
 servers:
   - url: http://localhost:3333
 
 paths:
+  /api/users/{id}:
+    parameters:
+      - in: path
+        name: id
+        explode: false
+        required: true
+        schema:
+          type: integer
+          format: int64
+
+    get:
+      tags:
+        - users
+      summary: Show user by id
+      description: Show user
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./openapi/schemas/user.yml
+        422:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: ./openapi/schemas/error.yml
+
+    put:
+      tags:
+        - users
+      summary: Update user by id
+      description: Update user
+      requestBody:
+        description: Hm
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./openapi/schemas/user.yml
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./openapi/schemas/user.yml
+        422:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: ./openapi/schemas/error.yml
+
+    delete:
+      tags:
+        - users
+      summary: Delete user by id
+      description: Delete user
+      responses:
+        204:
+          description: No content
+          content:
+            application/json:
+              schema:
+                type: object
+        422:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: ./openapi/schemas/error.yml
+
   /api/users:
     get:
       tags:
@@ -15,8 +97,8 @@ paths:
       summary: List users
       description: Show user list paginated
       parameters:
-        - name: page
-          in: query
+        - in: query
+          name: page
           explode: false
           required: false
           schema:
@@ -37,3 +119,29 @@ paths:
                     type: array
                     items:
                       $ref: ./openapi/schemas/user.yml
+
+    post:
+      tags:
+        - users
+      summary: Create user
+      description: Add user
+      requestBody:
+        description: Hm
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./openapi/schemas/user.yml
+      responses:
+        201:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ./openapi/schemas/user.yml
+        422:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: ./openapi/schemas/error.yml

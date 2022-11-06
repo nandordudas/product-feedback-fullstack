@@ -1,0 +1,16 @@
+type: object
+properties:
+  errors:
+    type: array
+    items:
+      type: object
+      properties:
+        rule:
+          type: string
+          example: required
+        field:
+          type: string
+          example: password
+        message:
+          type: string
+          example: row not found

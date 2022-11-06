@@ -29,6 +29,7 @@ properties:
   nextPageUrl:
     type: string
     example: /?page=2
+    nullable: true
   previousPageUrl:
     type: string
     nullable: true
