@@ -3,6 +3,7 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import { test } from '@japa/runner'
 import User from 'App/Models/User'
 
+// TODO: replace with assertAgainstApiSpec
 const mockMeta = {
   total: 50,
   perPage: 15,
@@ -16,6 +17,12 @@ const mockMeta = {
 }
 
 test.group('/api/users index', () => {
+  test('should display users', async ({ client }) => {
+    const response = await client.get('/api/users')
+
+    response.assertAgainstApiSpec()
+  })
+
   test('should display users page with pagination', async ({ client }) => {
     const response = await client.get('/api/users/?page=1')
 

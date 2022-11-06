@@ -5,9 +5,18 @@
  * file.
  */
 
+import Application from '@ioc:Adonis/Core/Application'
 import TestUtils from '@ioc:Adonis/Core/TestUtils'
 import { apiClient, assert, runFailedTests, specReporter } from '@japa/preset-adonis'
 import type { Config } from '@japa/runner'
+
+type PluginConfig = Parameters<typeof assert>[0]
+
+const assertOptions: PluginConfig = {
+  openApi: {
+    schemas: [Application.makePath('api-spec.yml')],
+  },
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +29,7 @@ import type { Config } from '@japa/runner'
 | Feel free to remove existing plugins or add more.
 |
 */
-export const plugins: Config['plugins'] = [assert(), runFailedTests(), apiClient()]
+export const plugins: Config['plugins'] = [assert(assertOptions), runFailedTests(), apiClient()]
 
 /*
 |--------------------------------------------------------------------------

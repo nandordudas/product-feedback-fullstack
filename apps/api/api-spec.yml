@@ -1,0 +1,97 @@
+openapi: 3.0.2
+
+info:
+  title: API Title
+  version: 0.0.1
+
+servers:
+  - url: http://localhost:3333
+
+paths:
+  /api/users:
+    get:
+      tags:
+        - users
+      summary: List users
+      description: Show user list paginated
+      parameters:
+        - name: page
+          in: query
+          explode: false
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+# TODO: move components to files
+components:
+  schemas:
+    Meta:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int32
+          example: '50'
+        perPage:
+          type: integer
+          format: int32
+          example: '15'
+        currentPage:
+          type: integer
+          format: int32
+          example: '1'
+        lastPage:
+          type: integer
+          format: int32
+          example: '4'
+        firstPage:
+          type: integer
+          format: int32
+          example: '1'
+        firstPageUrl:
+          type: string
+          example: /?page=1
+        lastPageUrl:
+          type: string
+          example: /?page=4
+        nextPageUrl:
+          type: string
+          example: /?page=2
+        previousPageUrl:
+          type: string
+          nullable: true
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: '1'
+        email:
+          type: string
+          example: Ellsworth20@gmail.com
+        rememberMeToken:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          example: '2022-11-04T22:57:13.396+00:00'
+        updatedAt:
+          type: string
+          example: '2022-11-04T22:57:13.397+00:00'
