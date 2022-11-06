@@ -32,6 +32,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
+          POSTGRES_DB_NAME: test
 
     steps:
       - uses: actions/checkout@v3
@@ -66,7 +67,7 @@ jobs:
           DB_CONNECTION: pg
           DRIVE_DISK: local
           NODE_ENV: test
-          PG_DB_NAME: postgres
+          PG_DB_NAME: test
           PG_HOST: postgres
           PG_PASSWORD: postgres
           PG_PORT: 5432
