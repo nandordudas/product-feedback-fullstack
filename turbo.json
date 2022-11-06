@@ -13,7 +13,16 @@
     },
     "typecheck": {
       "outputs": [
+        ".nuxt/**",
         "tsconfig.tsbuildinfo"
+      ],
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "test": {
+      "dependsOn": [
+        "build"
       ]
     },
     "dev": {

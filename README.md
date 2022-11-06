@@ -2,6 +2,11 @@
 
 > ❗ The related project will be filled with items until 15th November
 
+## TODO
+- [ ] web test runs local olny, because network reponse didn't mocked yet
+- [ ] add vercel/turbo cache to GitHub Action
+- [ ] check all remaning todos
+
 This project is based on [developing inside a container] with VSCode.
 [Development container] is a powerful way to create local development environments.
 

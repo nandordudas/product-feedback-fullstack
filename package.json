@@ -19,6 +19,7 @@
     "lint": "npx -y eslint . --cache",
     "preinstall": "turbo run build --filter=./config/*",
     "prepare": "is-ci || husky install ./config/husky",
+    "test": "turbo run test --filter=api",
     "typecheck": "turbo run typecheck",
     "up": "npx -y taze major -Ir"
   },
