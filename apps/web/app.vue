@@ -6,7 +6,7 @@ const { data } = await useFetch<Response>('/api/users')
 
 <template>
   <h1>users</h1>
-  <div>
+  <div v-if="data">
     <ul>
       <li v-for="{ id, email } in data.data" :key="id">
         <NuxtLink :to="`/users/${id}`">
@@ -15,5 +15,8 @@ const { data } = await useFetch<Response>('/api/users')
       </li>
     </ul>
     <div>{{ data.meta }}</div>
+  </div>
+  <div v-else>
+    No data
   </div>
 </template>
