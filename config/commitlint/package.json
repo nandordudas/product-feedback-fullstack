@@ -24,6 +24,6 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.2.0",
-    "tsup": "^6.3.0"
+    "tsup": "^6.4.0"
   }
 }
