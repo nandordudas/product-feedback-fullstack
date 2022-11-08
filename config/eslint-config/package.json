@@ -24,7 +24,7 @@
     "eslint-define-config": "^1.11.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.29.3",
+    "@antfu/eslint-config": "^0.29.4",
     "eslint-plugin-import-newlines": "^1.2.3",
     "eslint-plugin-no-relative-import-paths": "^1.4.0",
     "eslint-plugin-simple-import-sort": "^8.0.0",

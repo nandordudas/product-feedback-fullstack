@@ -24,7 +24,7 @@
     "up": "npx -y taze major -Ir"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.18.3",
+    "@antfu/ni": "^0.18.5",
     "@product-feedback/commitlint-config": "workspace:*",
     "@product-feedback/eslint-config": "workspace:*",
     "@product-feedback/husky": "workspace:*",
