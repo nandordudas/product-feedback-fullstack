@@ -4,6 +4,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --host localhost --port 3000",
+    "generate:mock": "npx msw-auto-mock ../api/api-spec.yml --output ./msw-mock-srever.ts",
     "generate": "nuxt generate",
     "postinstall": "nuxt prepare",
     "preview": "nuxt preview",
@@ -16,7 +17,9 @@
   },
   "devDependencies": {
     "@nuxt/test-utils": "3.0.0-rc.13",
+    "msw": "^0.47.4",
     "nuxt": "3.0.0-rc.13",
-    "vitest": "^0.24.5"
+    "playwright": "^1.27.1",
+    "vitest": "^0.25.0"
   }
 }

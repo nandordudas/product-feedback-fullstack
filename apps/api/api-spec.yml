@@ -13,7 +13,17 @@ externalDocs:
   url: http://swagger.io
 
 servers:
-  - url: http://localhost:3333
+  - url: '{protocol}://{hostname}:{port}'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+      hostname:
+        default: localhost
+      port:
+        default: '3333'
 
 paths:
   /api/users/{id}:

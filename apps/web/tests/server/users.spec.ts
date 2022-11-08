@@ -1,41 +1,52 @@
 import { fileURLToPath } from 'node:url'
 
-// TODO: check @faker-js/faker dependency
 import { faker } from '@faker-js/faker'
 import { $fetch, setup } from '@nuxt/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
 
-import { getExistingUserId } from './utils'
+let email: string
+const password = 'Pa55wor&'
 
-// TODO: fill missing test cases
+const mockPaginationResponse = {
+  meta: expect.any(Object),
+  data: expect.any(Array),
+}
+
+const mockUserResponse = {
+  id: expect.any(Number),
+  email: expect.any(String),
+}
+
+beforeEach(() => {
+  email = faker.internet.email()
+})
+
 await setup({
   rootDir: fileURLToPath(new URL('..', import.meta.url)),
   server: true,
 })
 
-let email: string
-let password: string
-
-beforeEach(() => {
-  email = faker.internet.email()
-  password = 'Pa55wor&'
-})
-
 describe('server index /api/users', () => {
+  it('should display pagination ', async () => {
+    const result = await $fetch('/api/users')
+
+    expect(result).toEqual(expect.objectContaining(mockPaginationResponse))
+  })
+
   it('should display pagination', async () => {
-    expect(await $fetch('/api/users')).toEqual(expect.objectContaining({
-      meta: expect.any(Object),
-      data: expect.any(Array),
-    }))
+    const result = await $fetch('/api/users/?page=2')
+
+    expect(result).toEqual(expect.objectContaining(mockPaginationResponse))
   })
 })
 
 describe('server store /api/users', () => {
+  const body = { email, password }
+
   it('should create new user', async () => {
-    expect(await $fetch('/api/users', {
-      method: 'post',
-      body: { email, password },
-    })).toEqual(expect.objectContaining({ email }))
+    const result = await $fetch('/api/users', { method: 'post', body })
+
+    expect(result).toEqual(expect.objectContaining({ email }))
   })
 
   it.todo('should response validation error when email and/or password not provided')
@@ -43,30 +54,21 @@ describe('server store /api/users', () => {
 
 describe('server show /api/users/:id', () => {
   it('should display existing user', async () => {
-    const id = await getExistingUserId()
+    const result = await $fetch('/api/users/1')
 
-    expect(await $fetch(`/api/users/${id}`)).toEqual(expect.objectContaining({
-      id: expect.any(Number),
-      email: expect.any(String),
-    }))
+    expect(result).toEqual(expect.objectContaining(mockUserResponse))
   })
 
   it.todo('should response error when user does not exists')
 })
 
 describe('server update /api/users/:id', () => {
-  password = 'Pa55wor&1'
+  const body = { email, password: 'Pa55wor&1' }
 
-  it('should display existing user', async () => {
-    const id = await getExistingUserId()
+  it('should update existing user', async () => {
+    const result = await $fetch('/api/users/1', { method: 'put', body })
 
-    expect(await $fetch(`/api/users/${id}`, {
-      method: 'put',
-      body: { email, password },
-    })).toEqual(expect.objectContaining({
-      id: expect.any(Number),
-      email: expect.any(String),
-    }))
+    expect(result).toEqual(expect.objectContaining(mockUserResponse))
   })
 
   it.todo('should response validation error when email and/or password not provided')
@@ -75,9 +77,9 @@ describe('server update /api/users/:id', () => {
 
 describe('server delete /api/users/:id', () => {
   it('should destroy existing user', async () => {
-    const id = await getExistingUserId()
+    const result = await $fetch('/api/users/10', { method: 'delete' })
 
-    expect(await $fetch(`/api/users/${id}`, { method: 'delete' })).toEqual('')
+    expect(result).toEqual('')
   })
 
   it.todo('should response error when user does not exists')

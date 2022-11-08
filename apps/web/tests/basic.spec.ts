@@ -9,9 +9,9 @@ await setup({
 })
 
 describe('index page', () => {
-  it('render index', async () => {
-    const html = await $fetch('/')
+  it('should render index page', async () => {
+    const result = await $fetch('/')
 
-    expect(html).toContain('<h1>users</h1>')
+    expect(result).toContain('<h1>users</h1>')
   })
 })
